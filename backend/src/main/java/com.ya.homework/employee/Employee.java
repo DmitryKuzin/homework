@@ -2,9 +2,9 @@ package com.ya.homework.employee;
 
 import com.ya.homework.salary.Salary;
 import lombok.*;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor

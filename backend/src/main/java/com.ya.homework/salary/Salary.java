@@ -5,8 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 
 @Data
 @Builder
@@ -17,6 +17,6 @@ public class Salary {
     public Long id;
 
     @NotNull
-    @PositiveOrZero
+    @Min(0)
     public Long summ;
 }

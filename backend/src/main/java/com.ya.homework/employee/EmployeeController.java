@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -34,7 +34,7 @@ public class EmployeeController {
     }
 
     @PutMapping("{employeeId}/salary")
-    public ResponseEntity changeSalary(@PathVariable @PositiveOrZero Long employeeId, @RequestBody @Valid Salary salary) {
+    public ResponseEntity changeSalary(@PathVariable @Min(0) Long employeeId, @RequestBody @Valid Salary salary) {
         service.changeSalary(employeeId, salary);
         return ResponseEntity.ok(HttpStatus.OK);
     }

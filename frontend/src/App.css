@@ -1,0 +1,13 @@
+.header {
+  text-align: center;
+  padding: 20px 0;
+  border: 1px solid #eeeeee;
+}
+
+.content {
+  padding: 20px;
+}
+
+.fire-button, .create-form{
+  margin: 20px 0;
+}
