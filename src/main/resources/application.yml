@@ -1,1 +1,10 @@
-logging.level.org.springframework.web: DEBUG
+logging.level.org.springframework:
+  web: DEBUG
+  transaction.interceptor: TRACE
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hw
+    username: kuzin
+    password: macbook9209kbprf
+    driver-class-name: org.postgresql.Driver

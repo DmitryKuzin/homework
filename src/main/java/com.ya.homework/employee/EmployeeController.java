@@ -1,39 +1,45 @@
 package com.ya.homework.employee;
 
 import com.ya.homework.salary.Salary;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @RestController
+@RequestMapping("employee")
+@Validated
 public class EmployeeController {
 
-    @Autowired
     private EmployeeService service;
 
-    @PutMapping(value = "employees")
-    public ResponseEntity createEmployee(@RequestBody Employee employee) {
+    public EmployeeController(EmployeeService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public ResponseEntity createEmployee(@RequestBody @Valid Employee employee) {
         service.createEmployee(employee);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("employees")
+    @GetMapping("all")
     public List<Employee> getEmployees() {
         return service.getEmployees();
     }
 
-    @PostMapping("employees/{employeeId}/salary")
-    public ResponseEntity changeSalary(@PathVariable Long employeeId, @RequestBody Salary salary) {
-        //validate employeeId
+    @PutMapping("{employeeId}/salary")
+    public ResponseEntity changeSalary(@PathVariable @PositiveOrZero Long employeeId, @RequestBody @Valid Salary salary) {
         service.changeSalary(employeeId, salary);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @DeleteMapping("employees")
+    @DeleteMapping("all")
     @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity deleteEmployees() {
        service.deleteAllEmployees();
