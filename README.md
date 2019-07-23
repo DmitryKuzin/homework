@@ -22,10 +22,15 @@
    
  develop mode
  
-  backend - Как обычно через IDE или в папке backend командой ../mvnw spring-boot run 
-  fronend - для первого запуска понадобится скачать и установить node и yarn в папке frontend командой 
-  ../mvnw frontend:install-node-and-yarn frontend:yarn 
-  затем будет доступен запуск через yarn командой yarn start
+  backend 
+  
+    Как обычно через IDE или в папке backend командой ../mvnw spring-boot run 
+  
+  fronend
+    
+    для первого запуска понадобится скачать и установить node и yarn в папке frontend командой 
+    ../mvnw frontend:install-node-and-yarn frontend:yarn 
+    затем будет доступен запуск через yarn командой yarn start
 
 
 
